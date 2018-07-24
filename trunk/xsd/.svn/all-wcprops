@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 26
+/svn/!svn/ver/89/trunk/xsd
+END
+lifeguard.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/83/trunk/xsd/lifeguard.xsd
+END
+lifeguard-config.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/89/trunk/xsd/lifeguard-config.xsd
+END
+lifeguard-common.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/48/trunk/xsd/lifeguard-common.xsd
+END
+lifeguard-ws.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/48/trunk/xsd/lifeguard-ws.xsd
+END

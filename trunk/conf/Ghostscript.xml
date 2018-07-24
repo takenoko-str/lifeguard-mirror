@@ -1,0 +1,12 @@
+<ServiceConfig xmlns="http://lifeguard-config.directthought.com/doc/2007-11-20/">
+	<ServiceName>Ghostscript</ServiceName>
+	<PoolStatusQueue>poolStatusGhostscript</PoolStatusQueue>
+	<ServiceWorkQueue>ghostscript-input</ServiceWorkQueue>
+	<WorkStatusQueue>workStatus-input</WorkStatusQueue>
+	<Parameter name="color" type="string" required="false">
+		<Value>MONO</Value>
+		<Value>GRAY</Value>
+		<Value>RGB</Value>
+		<Value>CMYK</Value>
+	</Parameter>
+</ServiceConfig>

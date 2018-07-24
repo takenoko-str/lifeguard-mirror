@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 27
+/svn/!svn/ver/94/trunk/conf
+END
+TextToPdf.xml
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/83/trunk/conf/TextToPdf.xml
+END
+logging.properties
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/83/trunk/conf/logging.properties
+END
+Transcode.xml
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/48/trunk/conf/Transcode.xml
+END
+TextLineSplitter.xml
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/48/trunk/conf/TextLineSplitter.xml
+END
+aws.properties
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/94/trunk/conf/aws.properties
+END
+SampleServiceConfig.xml
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/25/trunk/conf/SampleServiceConfig.xml
+END
+beans.xml
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/94/trunk/conf/beans.xml
+END
+Ghostscript.xml
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/71/trunk/conf/Ghostscript.xml
+END
+sampleWorkflow.xml
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/85/trunk/conf/sampleWorkflow.xml
+END
+poolconfig.xml
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/89/trunk/conf/poolconfig.xml
+END

@@ -1,0 +1,74 @@
+
+package com.directthought.lifeguard;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
+import javax.xml.bind.JAXBException;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.core.io.ClassPathResource;
+
+import com.xerox.amazonws.common.JAXBuddy;
+
+import com.directthought.lifeguard.jaxb.PoolConfig;
+
+/**
+ * Runs lifeguard from a command-line context.
+ */
+public class RunManager {
+	private static Log logger = LogFactory.getLog(RunManager.class);
+
+	public static void main(String [] args) {
+		if (args.length != 1) {
+			System.out.println("usage: RunManager <poolconfig.xml>");
+		}
+
+		XmlBeanFactory factory = new XmlBeanFactory(new ClassPathResource("beans.xml"));
+		PropertyPlaceholderConfigurer cfg = new PropertyPlaceholderConfigurer();
+		cfg.setLocation(new ClassPathResource("aws.properties"));
+		cfg.postProcessBeanFactory(factory);
+
+		try {
+			// Load pool configuration first - fail early if it isn't available
+			PoolConfig config = JAXBuddy.deserializeXMLStream(PoolConfig.class,
+											new FileInputStream(args[0]));
+
+			// start status logger
+			StatusLogger statLog = (StatusLogger)factory.getBean("statuslogger");
+			Thread statusThread = new Thread(statLog);
+			statusThread.start();
+
+			// start pool manager(s)
+			PoolSupervisor superVisor = (PoolSupervisor)factory.getBean("supervisor");
+			superVisor.setPoolConfig(config);
+			superVisor.setBeanFactory(factory);
+			superVisor.run();
+			BufferedReader rdr = new BufferedReader(new InputStreamReader(System.in));
+			while (true) {
+				rdr.readLine();
+				System.out.print("Do you want to exit? (Y/n) :");
+				String line = rdr.readLine();
+				if (!line.toLowerCase().equals("n")) {
+					break;
+				}
+			}
+			superVisor.shutdown();
+			statLog.shutdown();
+		} catch (FileNotFoundException ex) {
+			logger.error("Could not find config file : "+args[0], ex);
+		} catch (IOException ex) {
+			logger.error("Error reading config file", ex);
+		} catch (JAXBException ex) {
+			logger.error("Error parsing config file", ex);
+		}
+	}
+}

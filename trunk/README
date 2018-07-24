@@ -1,0 +1,92 @@
+lifeguard 0.3
+August 10, 2008
+
+http://code.google.com/p/lifeguard
+
+This is a simple API to access Amazon's SQS and EC2 web services. It uses the QUERY interface and patterns the methods after those available from Amazon in their SOAP client for these services. This code is thread-safe and works very reliably to the best of my knowledge. I've been using it on a system where sending messages in SQS is critical and we manage pools of servers in EC2.
+
+Distribution files;
+README         - this file
+LICENSE.txt    - full version of the Apache 2.0 license
+lifeguard.jar  - the classes for this release
+conf/          - property files
+lib/           - supporting libraries
+apidocs/       - JavaDoc for this release
+webapp/        - files to support the lifeguard web gui
+ingest.sh      - script to invoke the FileIngestor
+poolManager.sh - script to run the pool manager
+
+Be sure to edit the conf/aws.properties file to set your access id, secret key and queue prefix. The queue prefix is used to differentiate server groups (many can run in one account).
+
+Test Services
+TextLineSplitter - this service takes text as input and breaks words on separate lines
+TextToPdf - this service uses iText to create a simple pdf version of the input text file
+Transcode - this service calls ffmpeg to do video transcoding
+
+
+Change history for this version;
+------------------------------------------------------------------------
+r55 | dkavanagh | 2007-12-13 16:47:00 -0500 (Thu, 13 Dec 2007) | 3 lines
+
+set mimetype in ingestor based on file info updates to some scripts and updated properties, to run transcoding
+------------------------------------------------------------------------
+r54 | dkavanagh | 2007-12-13 08:35:00 -0500 (Thu, 13 Dec 2007) | 3 lines
+
+allow services to specify output key pass service parameters to work request (ingestor)
+------------------------------------------------------------------------
+r53 | dkavanagh | 2007-12-13 00:17:21 -0500 (Thu, 13 Dec 2007) | 2 lines
+
+Added watcher to push message visibility timeout, out while service is running
+------------------------------------------------------------------------
+r52 | dkavanagh | 2007-12-12 13:09:20 -0500 (Wed, 12 Dec 2007) | 2 lines
+
+fixed problem where pool mgr didn't terminate instances on exit.
+------------------------------------------------------------------------
+r50 | dkavanagh | 2007-12-11 14:16:02 -0500 (Tue, 11 Dec 2007) | 2 lines
+
+ensure input file is deleted upon service error; name input file based on input key extension
+------------------------------------------------------------------------
+r49 | dkavanagh | 2007-12-11 12:06:13 -0500 (Tue, 11 Dec 2007) | 2 lines
+
+allow outFiles to be null (in case of error being reported via status); fixed path in TranscodeSerivce
+------------------------------------------------------------------------
+r48 | dkavanagh | 2007-12-10 21:34:49 -0500 (Mon, 10 Dec 2007) | 2 lines
+
+added service params; all test code updated; Added TranscodeService, AMI will be made public; updated to typica 0.9
+------------------------------------------------------------------------
+r46 | dkavanagh | 2007-11-18 20:15:28 -0500 (Sun, 18 Nov 2007) | 1 line
+
+allow services to throw a specific exception which causes errors to get reported in WorkStatus
+------------------------------------------------------------------------
+r45 | dkavanagh | 2007-11-18 19:07:40 -0500 (Sun, 18 Nov 2007) | 1 line
+
+fixed issue #3, allow configuration of the find existing servers features
+------------------------------------------------------------------------
+r44 | dkavanagh | 2007-10-05 08:31:57 -0400 (Fri, 05 Oct 2007) | 1 line
+
+ensure WorkStatus contains correct instanceId and serviceName
+------------------------------------------------------------------------
+r43 | dkavanagh | 2007-10-05 07:58:49 -0400 (Fri, 05 Oct 2007) | 1 line
+
+added empty check on output files
+------------------------------------------------------------------------
+r42 | dkavanagh | 2007-10-05 07:54:30 -0400 (Fri, 05 Oct 2007) | 1 line
+
+added missing comma in csv header per issue #2
+------------------------------------------------------------------------
+r41 | dkavanagh | 2007-10-05 07:50:41 -0400 (Fri, 05 Oct 2007) | 1 line
+
+added setters for secondsToSleep. reset instance data retry to 5 in base service
+------------------------------------------------------------------------
+r40 | dkavanagh | 2007-10-05 07:41:24 -0400 (Fri, 05 Oct 2007) | 1 line
+
+added sleep at the end of receive loop
+------------------------------------------------------------------------
+r39 | dkavanagh | 2007-09-16 18:21:32 -0400 (Sun, 16 Sep 2007) | 1 line
+
+clean up on the last changes
+------------------------------------------------------------------------
+r38 | dkavanagh | 2007-09-14 07:30:55 -0400 (Fri, 14 Sep 2007) | 1 line
+
+itegrated changes from James Murty. Thanks for the nice work!
+------------------------------------------------------------------------

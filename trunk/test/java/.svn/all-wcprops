@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/110/trunk/test/java
+END
+CostFromLog.java
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/110/trunk/test/java/CostFromLog.java
+END
+DequeueSample.java
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/83/trunk/test/java/DequeueSample.java
+END
+EnqueueSample.java
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/48/trunk/test/java/EnqueueSample.java
+END
+AddWork.java
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/83/trunk/test/java/AddWork.java
+END
+SetState.java
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/48/trunk/test/java/SetState.java
+END
+SimulateServers.java
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/85/trunk/test/java/SimulateServers.java
+END
